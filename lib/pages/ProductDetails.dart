@@ -1,4 +1,3 @@
-// screens/product_detail_screen.dart
 import 'package:flutter/material.dart';
 import '../service/api_service.dart';
 import '../models/product.dart';
@@ -48,14 +47,22 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (snapshot.hasData) {
             Product product = snapshot.data!;
-            return Padding(
+            return SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
+
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.network(product.images,
-                      height: 200, width: double.infinity, fit: BoxFit.fill),
-                  SizedBox(height: 20),
+                  Image.network(
+                    product.images,
+                    fit: BoxFit
+                        .contain, 
+                    height:
+                        400, 
+                    width: double.infinity, 
+                  ),
+
+                  const SizedBox(height: 20),
                   Text(
                     product.title,
                     style: const TextStyle(
@@ -63,17 +70,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+
                   Padding(
-                    padding: const EdgeInsets.only(
-                        top: 8.0), 
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       product.price,
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 30,
                         color: Colors.green,
                       ),
                     ),
                   ),
+
                   Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 8.0, vertical: 4.0),
@@ -89,7 +97,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  
+                  const SizedBox(height: 20),
                   Text(product.description),
                 ],
               ),
