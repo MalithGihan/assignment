@@ -38,6 +38,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         elevation: 2, 
         centerTitle: false, 
       ),
+      
       body: FutureBuilder<Product>(
         future: product,
         builder: (context, snapshot) {
