@@ -35,13 +35,13 @@ class _HomeState extends State<Home> {
         title: const Text(
           'Home',
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 32,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
         ),
         elevation: 4,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFAEC3B0),
         centerTitle: false,
       ),
       body: Column(
@@ -181,7 +181,7 @@ class CategoryBox extends StatelessWidget {
       width: 100,
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: Colors.grey[300],
+        color: Colors.black,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
@@ -190,6 +190,7 @@ class CategoryBox extends StatelessWidget {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
       ),

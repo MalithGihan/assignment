@@ -34,7 +34,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             color: Colors.black,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFAEC3B0),
         elevation: 4,
         centerTitle: false,
       ),
@@ -97,7 +97,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                     ),
                   ),
-                  
+
                   const SizedBox(height: 20),
                   Text(product.description),
                 ],
