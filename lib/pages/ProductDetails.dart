@@ -6,7 +6,8 @@ import '../models/product.dart';
 class ProductDetailScreen extends StatefulWidget {
   final String productId;
 
-  const ProductDetailScreen({Key? key, required this.productId}) : super(key: key);
+  const ProductDetailScreen({Key? key, required this.productId})
+      : super(key: key);
 
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
@@ -25,20 +26,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'Product Details',
           style: TextStyle(
-            fontSize: 25, 
-            fontWeight: FontWeight.bold, 
-            color: Colors.black, 
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         ),
-        backgroundColor: Colors.white, 
-        elevation: 2, 
-        centerTitle: false, 
+        backgroundColor: Colors.white,
+        elevation: 4,
+        centerTitle: false,
       ),
-      
       body: FutureBuilder<Product>(
         future: product,
         builder: (context, snapshot) {
@@ -53,12 +53,42 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.network(product.images, height: 200, width: double.infinity, fit: BoxFit.cover),
+                  Image.network(product.images,
+                      height: 200, width: double.infinity, fit: BoxFit.fill),
                   SizedBox(height: 20),
-                  Text(product.title, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                  Text(product.price, style: TextStyle(fontSize: 20, color: Colors.green)),
-                  SizedBox(height: 10),
-                  Text('Rating: ${product.rating}', style: TextStyle(fontSize: 16)),
+                  Text(
+                    product.title,
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8.0), 
+                    child: Text(
+                      product.price,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 4.0),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Text(
+                      'Rating: ${product.rating}',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                   SizedBox(height: 20),
                   Text(product.description),
                 ],
